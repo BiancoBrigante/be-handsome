@@ -657,16 +657,24 @@
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
                             data-bs-target="#loginModal">Вход</button>
-                        <a href="./pages/master.html"><button type="button" class="btn btn-outline-secondary btn-lg px-4">Как стать мастером?</button></a>
+                        <a href="./pages/master.html"><button type="button"
+                                class="btn btn-outline-secondary btn-lg px-4">Как стать мастером?</button></a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- блоки фида -->
-        <div
+        <ul class="nav nav-pills">
+            <li class="nav-item"><button id='allTab' class="nav-link active">Новое</button></li>
+            <li class="nav-item"><button id='tattooTab' class="nav-link">Татуировки</button></li>
+            <li class="nav-item"><button id='pierceTab' class="nav-link">Пирсинг</button></li>
+            <li class="nav-item"><button id='beautyTab' class="nav-link">Макияж</button></li>
+            <li class="nav-item"><button id='hairTab' class="nav-link">Причёски</button></li>
+        </ul>
+        <div id="feed"
             class="row row-cols-xxl-5 row-cols-md-2 row-cols-lg-3 align-items-stretch justify-content-center py-5 bg-light">
             <!-- 1 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock0" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card1Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo1.jpg');">
@@ -691,7 +699,7 @@
                 </div>
             </div>
             <!-- 2 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock1" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card2Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo2.jpg');">
@@ -715,7 +723,7 @@
                 </div>
             </div>
             <!-- 3 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="piercingblock0" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card3Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/piercing1.jpg');">
@@ -739,7 +747,7 @@
                 </div>
             </div>
             <!-- 4 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock2" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card4Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo3.jpg');">
@@ -762,7 +770,7 @@
                 </div>
             </div>
             <!-- 5 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="hairblock0" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card5Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/hair1.jpg');">
@@ -786,7 +794,7 @@
                 </div>
             </div>
             <!-- 6 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="beautyblock0" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card6Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/beauty1.jpg');">
@@ -809,7 +817,7 @@
                 </div>
             </div>
             <!-- 7 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="beautyblock1" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card7Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/beauty2.jpg');">
@@ -833,7 +841,7 @@
                 </div>
             </div>
             <!-- 8 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock3" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card8Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo4.jpg');">
@@ -856,7 +864,7 @@
                 </div>
             </div>
             <!-- 9 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="piercingblock1" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card9Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/piercing2.jpg');">
@@ -880,7 +888,7 @@
                 </div>
             </div>
             <!-- 10 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="piercingblock2" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card10Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/piercing3.jpg');">
@@ -904,7 +912,7 @@
                 </div>
             </div>
             <!-- 11 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock4" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card11Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo5.jpg');">
@@ -927,7 +935,7 @@
                 </div>
             </div>
             <!-- 12 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="hairblock1" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card12Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/hair2.jpg');">
@@ -951,7 +959,7 @@
                 </div>
             </div>
             <!-- 13 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="hairblock2" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card13Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/hair3.jpg');">
@@ -974,7 +982,7 @@
                 </div>
             </div>
             <!-- 14 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="beautyblock2" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card14Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/beauty3.jpeg');">
@@ -997,7 +1005,7 @@
                 </div>
             </div>
             <!-- 15 блок -->
-            <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
+            <div class="col mb-5" id="tattooblock5" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card15Modal"
                     style="background-size: cover; background-position: center; background-image: url('./src/images/tattoo8.jpg');">
@@ -1030,6 +1038,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

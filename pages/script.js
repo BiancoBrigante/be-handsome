@@ -210,29 +210,21 @@ let arr = {
 //грузим скрипты по готовности элементов
 document.addEventListener('DOMContentLoaded', () => {
 
-    // Получаем кнопки "Новое", "Татуировки", "Пирсинг", "Макияж" и "Причёски"
-    const tattooTab = document.getElementById('tattooTab'),
-        pierceTab = document.getElementById('pierceTab'),
-        beautyTab = document.getElementById('beautyTab'),
-        hairTab = document.getElementById('hairTab'),
-        allTab = document.getElementById('allTab');
-
-    // Функция вывода карточек всех кнопок кроме "Новое"
-    let showTag = (button, element) => {
-        button.onclick = () => {
-            temporaryTag = element;
-            feed.innerHTML = '';
-            for (let i = 0; i < temporaryTag.length; i++) {
-                feed.innerHTML +=
-                    `
+    // Функция вывода карточек
+    let showTag = (element) => {
+        temporaryTag = element;
+        feed.innerHTML = '';
+        for (let i = 0; i < temporaryTag.length; i++) {
+            feed.innerHTML +=
+                `
                     <div class="modal fade" id="card${i}Modal" tabindex="-1">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="width: 90%">
                 <div class="col-md-12">
                     <div
                         class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                        <div class="col-auto d-none d-lg-block">
-                            <img width="100%" height="auto" src="${temporaryTag[i].img}">
+                        <div class="col-auto d-lg-block">
+                            <img width="100%" height="auto" src="./../${temporaryTag[i].img}">
                             </img>
                         </div>
                         <div class="col p-4 d-flex flex-column position-static">
@@ -241,11 +233,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             <p class="card-text mb-auto">${temporaryTag[i].description}</p>
                             <ul class="d-flex list-unstyled mt-auto pt-3">
                                 <li class="me-auto">
-                                    <a href="${temporaryTag[i].profile}"><img src="${temporaryTag[i].avatar}" alt="avatar"
+                                    <a href="./../${temporaryTag[i].profile}"><img src="./../${temporaryTag[i].avatar}" alt="avatar"
                                             width="40" height="40" class="rounded-circle border border-dark"></a>
                                 </li>
                                 <ul class="d-flex fs-5 align-items-center me-3">
-                                    <a href="${temporaryTag[i].profile}" class="text-dark text-decoration-none">
+                                    <a href="./../${temporaryTag[i].profile}" class="text-dark text-decoration-none">
                                         <h4>${temporaryTag[i].autor}</h4>
                                     </a>
                                 </ul>
@@ -259,13 +251,13 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
                     data-bs-toggle="modal" data-bs-target="#card${i}Modal"
-                    style="background-size: cover; background-position: center; background-image: url('${temporaryTag[i].img}');">
+                    style="background-size: cover; background-position: center; background-image: url('./../${temporaryTag[i].img}');">
                     <div class="d-flex flex-column h-100 p-4 pb-3 text-white text-shadow-1">
                         <h2 class="fs-3 lh-1 fw-bold"
                             style="height: 300px; width:200px; text-shadow: rgb(0, 0, 114) 1px 1px 3px;">${temporaryTag[i].title}</h2>
                         <ul class="d-flex list-unstyled mt-auto">
                             <li class="me-auto">
-                                <img src=${temporaryTag[i].avatar} alt="avatar" width="40" height="40"
+                                <img src='./../${temporaryTag[i].avatar}' alt="avatar" width="40" height="40"
                                     class="rounded-circle border border-white">
                             </li>
                             <li class="d-flex fs-5 align-items-center me-3">
@@ -276,92 +268,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
     `;
-            }
         }
     }
 
-    // Функция сортировки массиива карточек "Новое" по дате
-    function sortNews(a, b) {
-        if (Number(a.date.substr(0, 1)) > Number(b.date.substr(0, 1))) return 1;
-        if (Number(a.date.substr(0, 1)) == Number(b.date.substr(0, 1))) return 0;
-        if (Number(a.date.substr(0, 1)) < Number(b.date.substr(0, 1))) return -1;
-    }
-
-    // Функция создания пустого массива для "Новое" и наполнение его всеми существующими массивами, создание карточки
-    function startFeed() {
-        let feedArr = [];
-        feedArr = feedArr.concat(arr.tattoo, arr.piercing, arr.beauty, arr.hair).sort(sortNews);
-        for (let i = 0; i < feedArr.length; i++) {
-            feed.innerHTML +=
-                `
-                <div class="modal fade" id="card${i}Modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content" style="width: 90%">
-                        <div class="col-md-12">
-                            <div
-                                class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                                <div class="col-auto d-lg-block">
-                                    <img width="100%" height="auto" src="${feedArr[i].img}">
-                                    </img>
-                                </div>
-                                <div class="col p-4 d-flex flex-column position-static">
-                                    <h3 class="mb-0">${feedArr[i].title}</h3>
-                                    <div class="mb-1 text-muted">${feedArr[i].date}</div>
-                                    <p class="card-text mb-auto">${feedArr[i].description}</p>
-                                    <ul class="d-flex list-unstyled mt-auto pt-3">
-                                        <li class="me-auto">
-                                            <a href="${feedArr[i].profile}"><img src="${feedArr[i].avatar}" alt="avatar"
-                                                    width="40" height="40" class="rounded-circle border border-dark"></a>
-                                        </li>
-                                        <ul class="d-flex fs-5 align-items-center me-3">
-                                            <a href="${feedArr[i].profile}" class="text-dark text-decoration-none">
-                                                <h4>${feedArr[i].autor}</h4>
-                                            </a>
-                                        </ul>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <div class="col mb-5" style="max-width: 300px; max-height: 400px;">
-            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg"
-                data-bs-toggle="modal" data-bs-target="#card${i}Modal"
-                style="background-size: cover; background-position: center; background-image: url('${feedArr[i].img}');">
-                <div class="d-flex flex-column h-100 p-4 pb-3 text-white text-shadow-1">
-                    <h2 class="fs-3 lh-1 fw-bold"
-                        style="height: 300px; width:200px; text-shadow: rgb(0, 0, 114) 1px 1px 3px;">${feedArr[i].title}</h2>
-                    <ul class="d-flex list-unstyled mt-auto">
-                        <li class="me-auto">
-                            <img src=${feedArr[i].avatar} alt="avatar" width="40" height="40"
-                                class="rounded-circle border border-white">
-                        </li>
-                        <li class="d-flex fs-5 align-items-center me-3">
-                            <small style="text-shadow: black 1px 1px 2px;">${feedArr[i].autor}</small>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-`;
-        }
-    }
-
-    // Функция вывода всех карточек для "Новое"
-    let newsFeed = (button) => {
-        button.onclick = () => {
-            feed.innerHTML = '';
-            startFeed()
-        }
-    }
-
-
-
-    startFeed(); //При загрузке страницы сразу отображается раздел "Новое"
-    newsFeed(allTab); //Кнопка "Новое"
-    showTag(tattooTab, arr.tattoo); //Кнопка "Татуировки"
-    showTag(pierceTab, arr.piercing); //Кнопка "Пирсинг"
-    showTag(beautyTab, arr.beauty); //Кнопка "Макияж"
-    showTag(hairTab, arr.hair); //Кнопка "Причёски"
+    //получаем имя владельца страницы и вызываем соответствующую функцию
+    let pageName = document.getElementById('profileName').textContent;
+    if (pageName == 'Dmitry Aleksandrov') {
+        showTag(arr.tattoo)
+    };
+    if (pageName == 'Sergey Simonov') {
+        showTag(arr.piercing)
+        
+    };
+    if (pageName == 'Elena Morgan') {
+        showTag(arr.beauty)
+        
+    };
+    if (pageName == 'Анна Сансара') {
+        showTag(arr.hair)
+        
+    };
 });

@@ -115,7 +115,7 @@
     <container>
         <!-- блок с каруселью -->
         <div class="container col-xxl-8 px-4 py-5">
-            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5 justify-content-center">
                 <div class="col-10 col-sm-8 col-lg-6">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -164,16 +164,18 @@
                 </div>
             </div>
         </div>
-        <!-- блоки фида -->
+        <!-- кнопки -->
         <ul class="nav nav-pills p-3 justify-content-center">
-            <li class="nav-item"><button id='allTab' class="nav-link active">Новое</button></li>
-            <li class="nav-item"><button id='tattooTab' class="nav-link">Татуировки</button></li>
-            <li class="nav-item"><button id='pierceTab' class="nav-link">Пирсинг</button></li>
-            <li class="nav-item"><button id='beautyTab' class="nav-link">Макияж</button></li>
-            <li class="nav-item"><button id='hairTab' class="nav-link">Причёски</button></li>
+            <li class="nav-item"><button id='allTab' class="btn btn-outline-dark active">Новое</button></li>
+            <li class="nav-item"><button id='tattooTab' class="btn">Татуировки</button>
+            </li>
+            <li class="nav-item"><button id='pierceTab' class="btn">Пирсинг</button></li>
+            <li class="nav-item"><button id='beautyTab' class="btn">Макияж</button></li>
+            <li class="nav-item"><button id='hairTab' class="btn">Причёски</button></li>
         </ul>
-        <div id="feed"
-            class="row row-cols-xxl-5 row-cols-md-2 row-cols-lg-3 align-items-stretch justify-content-center py-5 bg-light">
+        <!-- фид -->
+        <div id="feed" class="row row-cols-1 align-items-center justify-content-center py-5 bg-light"
+            style="width:80%; margin-left: 10%">
         </div>
         <!-- спиннер загрузки -->
         <div class="d-flex justify-content-center pb-5 bg-light">

@@ -217,6 +217,18 @@ document.addEventListener('DOMContentLoaded', () => {
         hairTab = document.getElementById('hairTab'),
         allTab = document.getElementById('allTab');
 
+    // Меняем отображение кнопок на Главной по клику
+    function activeBtn(tag) {
+        tag.addEventListener('click', function () {
+            tattooTab.classList.remove('btn-outline-dark')
+            pierceTab.classList.remove('btn-outline-dark')
+            beautyTab.classList.remove('btn-outline-dark')
+            hairTab.classList.remove('btn-outline-dark')
+            allTab.classList.remove('btn-outline-dark')
+            tag.classList.toggle('btn-outline-dark')
+        })
+    }
+
     // Функция вывода карточек всех кнопок кроме "Новое"
     let showTag = (button, element) => {
         button.onclick = () => {
@@ -294,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let i = 0; i < feedArr.length; i++) {
             feed.innerHTML +=
                 `
-                <div class="modal fade" id="card${i}Modal" tabindex="-1">
+            <div class="modal fade" id="card${i}Modal" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content" style="width: 90%">
                         <div class="col-md-12">
@@ -364,4 +376,10 @@ document.addEventListener('DOMContentLoaded', () => {
     showTag(pierceTab, arr.piercing); //Кнопка "Пирсинг"
     showTag(beautyTab, arr.beauty); //Кнопка "Макияж"
     showTag(hairTab, arr.hair); //Кнопка "Причёски"
+    // визуал кнопок
+    activeBtn(tattooTab) 
+    activeBtn(pierceTab)
+    activeBtn(beautyTab)
+    activeBtn(hairTab)
+    activeBtn(allTab)
 });
